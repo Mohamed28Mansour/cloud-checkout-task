@@ -5,10 +5,18 @@ const SelectionSummary = () => {
   const { gigabytes, duration, totalPrice } = useGlobalContext();
 
   return (
-    <div>
-      <p>Subscription: {duration} months</p>
-      <p>Gigabytes per month: {gigabytes}</p>
-      <p>Total Price: {totalPrice}$</p>
+    <div className="mt-5 ml-10 mr-10 p-3 bg-gray-100">
+      <h3 className="text-xl mb-5">Subscription Summary</h3>
+      <div className="ml-5">
+        <span>Subscription: </span>
+        <span>{duration} months</span>
+        <br />
+        <span>Gigabytes per month: </span>
+        <span>{gigabytes}</span>
+        <br />
+        <span>Total Price: </span>
+        <span>{totalPrice}$</span>
+      </div>
     </div>
   );
 };

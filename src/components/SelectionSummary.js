@@ -2,7 +2,8 @@ import React from "react";
 import { useGlobalContext } from "../context";
 
 const SelectionSummary = () => {
-  const { gigabytes, duration, totalPrice } = useGlobalContext();
+  const { gigabytes, duration, pricePerGigabyte, totalPrice } =
+    useGlobalContext();
 
   return (
     <div className="mt-5 ml-10 mr-10 p-3 bg-gray-100">
@@ -13,6 +14,9 @@ const SelectionSummary = () => {
         <br />
         <span>Gigabytes per month: </span>
         <span>{gigabytes}</span>
+        <br />
+        <span>Price per Gigabyte: </span>
+        <span>{pricePerGigabyte}$</span>
         <br />
         <span>Total Price: </span>
         <span>{totalPrice}$</span>

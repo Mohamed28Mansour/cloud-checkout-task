@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
 
 const subscriptionPlans =
   "https://cloud-storage-prices-moberries.herokuapp.com/prices";
@@ -20,6 +21,30 @@ const AppProvider = ({ children }) => {
   });
   const [email, setEmail] = useState("");
   const [terms, setTerms] = useState(false);
+  const [dataSent, setDataSent] = useState("");
+
+  const sendCollectedData = () => {
+    axios
+      .post("https://httpbin.org/post", {
+        duration,
+        gigabytes,
+        pricePerGigabyte,
+        totalPrice,
+        upfrontPayment,
+        creditCardNumber,
+        cardHolder,
+        cvc,
+        expiryDate,
+        email,
+        terms,
+      })
+      .then(() => {
+        setDataSent("Thank you for your purchase!");
+      })
+      .catch(() => {
+        setDataSent("An error occured, please try again later");
+      });
+  };
 
   const fetchSubscriptionData = async () => {
     const response = await fetch(subscriptionPlans);
@@ -79,6 +104,7 @@ const AppProvider = ({ children }) => {
         expiryDate,
         email,
         terms,
+        dataSent,
         durationSelector,
         gigabytesSelector,
         paymentSelector,
@@ -89,6 +115,7 @@ const AppProvider = ({ children }) => {
         setCvc,
         setExpiryDate,
         setEmail,
+        sendCollectedData,
       }}
     >
       {children}

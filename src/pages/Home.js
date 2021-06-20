@@ -7,7 +7,7 @@ import PaymentOption from "../components/PaymentOption";
 const Home = () => {
   return (
     <div className="h-screen flex justify-center items-center bg-dark-blue">
-      <div className="bg-white h-3/5 md:w-1/2 rounded-md flex flex-col relative">
+      <div className="bg-white md:h-4/5 md:w-1/2 rounded-md flex flex-col relative">
         <Duration />
         <Gigabytes />
         <PaymentOption />

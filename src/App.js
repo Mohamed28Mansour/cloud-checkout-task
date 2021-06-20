@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Payment from "./pages/Payment";
 import Confirmation from "./pages/Confirmation";
-import Thankyou from "./pages/Thankyou";
+import Response from "./pages/Response";
 import "./App.css";
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
         <Route exact path="/confirmation">
           <Confirmation />
         </Route>
-        <Route exact path="/thankyou">
-          <Thankyou />
+        <Route exact path="/response">
+          <Response />
         </Route>
       </Switch>
     </Router>

@@ -5,7 +5,7 @@ import ConfirmationForm from "../components/ConfirmationForm";
 import { useGlobalContext } from "../context";
 
 const Confirmation = () => {
-  const { email, terms } = useGlobalContext();
+  const { email, terms, sendCollectedData } = useGlobalContext();
   const [emailError, setEmailError] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
 
@@ -30,7 +30,7 @@ const Confirmation = () => {
             Back
           </button>
         </Link>
-        <Link to="/thankyou">
+        <Link to="/response">
           <button
             className={
               isFormValid()
@@ -38,6 +38,7 @@ const Confirmation = () => {
                 : "font-bold text-white absolute right-20 bottom-5 mt-5 w-20 rounded-xl p-1 bg-red-700"
             }
             disabled={isFormValid()}
+            onClick={() => sendCollectedData()}
           >
             Confirm
           </button>
